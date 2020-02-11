@@ -73,7 +73,7 @@ body {
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #2A7572;
 }
 
 /* Style the topnav links */
