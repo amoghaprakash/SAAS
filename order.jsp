@@ -80,22 +80,29 @@
 
                 for (var key in data) {
 
-                    var orderId     = "<h5>"      + data[key]._id.valueOf()    + "</h5>";
-                    var itemName = "<div class='input-group mb-3 col-sm-12'>"+
-                                     "<div class='input-group-prepend'>" +
-                                        "<span class='input-group-text'>" + "Item Name" + "</span>"+
-                                      "</div>" +
-                                      "<label class = 'form-control' id = 'itemNameLabel'>" +data[key].itemName+ "</label>"+
-                                    "</div>"
+                    var orderId     = "<h5 style = 'color:#ff9a00'>Order Number "  +"# "   + data[key]._id    + "</h5>";
+                    var itemName = "<div style = 'font-size: large; font-weight: bold;' class='input-group mb-3 col-sm-12'>"+
+                                      "<label  style = 'color: #007bff;' id = 'itemNameLabel'>" +data[key].itemName+ "</label>"+
+                                    "</div>";
+                     var ownerName =  "<div class='input-group mb-3 col-sm-12'>"+
+							             "<label  style  = 'color:#00000080' id = 'ownerNameLabel'>" + "Onwer : " + "</label><label>" + data[key].ownerName+ "</label>"+
+							         "</div>";
+							         
+					var ownerAddress = "<div class='input-group mb-3 col-sm-12'>"+
+							              "<label  id = 'ownerAddressLabel'>" +data[key].ownerAddress+ "</label>"+
+							             "</div>";
+							             
+					var fromDate =  "<div class='input-group mb-3 col-sm-12'>"+
+							           "<label  id = 'fromDateLabel'>" +data[key].fromDate+ " to " +data[key].toDate+ "</label>"+
+							         "</div>";
+							     
+				    var totalCost = "<div class='input-group mb-3 col-sm-12'>"+
+				                       "<label  style  = 'color:#00000080' id = 'ownerNameLabel'>" + "Total : " + "</label><label>" +"$ " +data[key].totalCost+ "</label>"+
+							         "</div>";
                                     
-                    // do like this for all - manage all space from one div to next 
-                    var ownerName = "<label id = 'ownerNameLabel'>" +data[key].ownerName+ "</label>";
-                    var ownerAddress = "<label id = 'ownerAddressLabel'>" +data[key].ownerAddress+ "</label>";
-                    var fromDate = "<label id = 'fromDateLabel'>" +data[key].fromDate+ "</label>";
-                    var toDate = "<label id = 'toDateLabel'>" +data[key].toDate+ "</label>";
-                    var totalCost = "<label id = 'totalCostLabel'>" +data[key].totalCost+ "</label>";
+                   
 
-                    var div = divCol + divWell + orderId +itemName + ownerName + ownerAddress + fromDate + toDate + totalCost + divClose;
+                    var div = divCol + divWell + orderId +itemName + ownerName + ownerAddress + fromDate + totalCost + divClose;
 
                     $('.col-md-12').append(div); // insert the div you've just created
                 
@@ -104,12 +111,17 @@
             error: function(data) {
                 alert(data);
             }
+            
+            
+            
+            
         });
     });
     
     </script>
 </head>        
 <body>
+ <%@ include file="header.jsp" %> 
 <div class="wrapper">
                 <div id="main" class="row">
                     <div class="col-sm-3"> </div>
